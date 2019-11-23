@@ -1,0 +1,44 @@
+{
+  "bot_type": "com.gsk.rd.datacoe.bots.MonitorBot",
+  "metadata": {
+    "topic": "taskstatus_topic_performance_testing",
+    "msg_uuid": "78236882-1f1a-4831-8d91-b0b33eaab4fb",
+    "parent_uuid": "41f9108f-ccde-40be-ab27-763c607917f0",
+    "bot_uuid": "b1c1051a-4eba-4696-abd8-c69f69b30329",
+    "tags": {
+      "process_id": 1524805801348047,
+      "initial_ts": 1524805800108,
+      "batch_id": 20180427011000,
+      "batch_name": "Ingestion_20180427",
+      "tags": [
+        "Jdbcbot2",
+        "create_foundation_table",
+        "taskstatus_bot"
+      ],
+      "retry_attempt": 0
+    },
+    "process_context": "taskstatus_bot_success_msg"
+  },
+  "tasks": [
+    {
+      "name": "taskstatus_bot_status",
+      "processor": {
+        "classname": "com.gsk.rd.datacoe.bots.processor.NullProcessor",
+        "props": {}
+      },
+      "app_template": {
+        "app_template_group": "/local/platform_testing/pipelines_upgrade/botworks/templates/jdbc_bot_v2.stg",
+        "app_template_name": "jdbc_insert_into_performance_testing_hive_connection_time"
+      },
+      "data": {
+        "bot_name": "HiveBot",
+        "task_name": "select_unencrypted",
+        "process_context": "hive_testing_operations",
+        "process_id": "1524805801348047",
+        "task_start_ts": 1556090246181,
+        "task_end_ts": 1556090246545,
+        "status": true
+      }
+    }
+  ]
+}

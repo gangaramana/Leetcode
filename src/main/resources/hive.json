@@ -1,0 +1,1 @@
+create table performance_testing.hive_metrics (toolname text,process_context text,process_id,task_name varchar(256),status boolean,end_ts timestamp,start_ts timestamp,elapsed_time_millis )
