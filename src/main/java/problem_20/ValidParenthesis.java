@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class ValidParenthesis {
     public static void main(String[] args) {
-        String s = "(())[][{{}}]";
+        String s = "([}}])";
 
         ValidParenthesis validParenthesis = new ValidParenthesis();
         boolean b = validParenthesis.isValid(s);
@@ -18,7 +18,6 @@ public class ValidParenthesis {
             Stack<Character> stack = new Stack<Character>();
             int i = 0;
             int len = c.length;
-            boolean flag = true;
             while (i < len) {
                 if (c[i] == '(' || c[i] == '{' || c[i] == '[') {
                     stack.push(c[i++]);
@@ -30,7 +29,7 @@ public class ValidParenthesis {
                         stack.pop();
                         i++;
                     } else {
-                        i++;
+                        return false;
                     }
                 } else if (c[i] == ']') {
                     if (stack.isEmpty()) {
@@ -40,7 +39,7 @@ public class ValidParenthesis {
                         stack.pop();
                         i++;
                     } else {
-                        i++;
+                        return false;
                     }
                 } else if (c[i] == '}') {
                     if (stack.isEmpty()) {
@@ -50,7 +49,7 @@ public class ValidParenthesis {
                         stack.pop();
                         i++;
                     } else {
-                        i++;
+                        return false;
                     }
                 } else {
 

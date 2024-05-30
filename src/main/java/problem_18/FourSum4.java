@@ -7,7 +7,7 @@ import java.util.List;
 public class FourSum4 {
     public static void main(String[] args) {
         FourSum4 fourSum4 = new FourSum4();
-        System.out.println(fourSum4.fourSum(new int[]{1, 0, -1, 0, -2, 2,-3,3}, 0));
+        System.out.println(fourSum4.fourSum(new int[]{2,2,2,2,2}, 8));
     }
 
     public List<List<Integer>> fourSum(int[] nums, int target) {

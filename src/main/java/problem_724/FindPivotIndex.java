@@ -7,17 +7,26 @@ public class FindPivotIndex {
     }
 
     public int pivotIndex(int[] nums) {
-        int sum = 0, prevsum = 0;
+        int[] prefixSum = new int[nums.length];
+        int[] suffixSum = new int[nums.length];
+        int sum = 0;
         for (int i = 0; i < nums.length; i++) {
-            sum = sum + nums[i];
+            prefixSum[i] = sum;
+            sum += nums[i];
         }
-        for (int j = 0; j < nums.length; j++) {
-            sum = sum - nums[j];
-            if (sum == prevsum) {
-                return j;
+        sum = 0;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            suffixSum[i] = sum;
+            sum += nums[i];
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (suffixSum[i] == prefixSum[i]) {
+                return i;
             }
-            prevsum = prevsum + nums[j];
+
         }
         return -1;
+
     }
+
 }

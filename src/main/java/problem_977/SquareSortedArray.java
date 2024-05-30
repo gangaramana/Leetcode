@@ -11,9 +11,10 @@ import java.util.Arrays;
 public class SquareSortedArray {
     public static void main(String[] args) {
         SquareSortedArray s=new SquareSortedArray();
-        int []A={-4,-1,0,3,10};
+        int []A={-4,-1,2,3,10};
+//        System.out.println(Math.abs(-11));
 
-        s.sortedSquares(A);
+        A=s.sortedSquares(A);
         int length=A.length;
         for (int i = 0; i < length; i++) {
             System.out.println(A[i]);
@@ -22,13 +23,24 @@ public class SquareSortedArray {
 
     }
 
-    public int[] sortedSquares(int[] A) {
-        int length = A.length;
-        for (int i = 0; i < length; i++) {
-            A[i] = A[i] * A[i];
-        }
-        Arrays.sort(A);
+    public int[] sortedSquares(int[] nums) {
+        int i=0,j=nums.length-1;
+        int k=nums.length-1;
+        int [] result=new int[nums.length];
+        while (i<=j){
+            if (Math.abs(nums[i])>Math.abs(nums[j])){
+                result[k]=nums[i]*nums[i];
+                i++;
+                k--;
 
-        return A;
+            }
+            else {
+                result[k]=nums[j]*nums[j];
+                j--;
+                k--;
+            }
+
+        }
+        return result;
     }
 }
